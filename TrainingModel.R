@@ -86,3 +86,79 @@ cv_model <- train(Fare ~ .,  # Regression formula
 
 # View the cross-validation results
 print(cv_model)
+# Load required libraries
+library(caret)
+
+# Set seed for reproducibility
+set.seed(123)
+
+# Define the number of folds for cross-validation
+num_folds <- 10
+
+# Define the control parameters for cross-validation
+ctrl <- trainControl(method = "cv",  # Cross-validation method
+                     number = num_folds,  # Number of folds
+                     verboseIter = TRUE)  # Display progress
+
+# Train Linear Regression model
+lm_model <- train(Fare ~ .,  # Regression formula
+                  data = sampled_data,  # Sampled dataset
+                  method = "lm",  # Linear regression
+                  trControl = ctrl)  # Cross-validation control parameters
+
+# Evaluate Linear Regression model
+lm_performance <- resamples(list(Linear_Regression = lm_model))
+
+# Train Ridge Regression model
+ridge_model <- train(Fare ~ .,  # Regression formula
+                     data = sampled_data,  # Sampled dataset
+                     method = "ridge",  # Ridge regression
+                     trControl = ctrl)  # Cross-validation control parameters
+
+# Evaluate Ridge Regression model
+ridge_performance <- resamples(list(Ridge_Regression = ridge_model))
+
+# Train Lasso Regression model
+lasso_model <- train(Fare ~ .,  # Regression formula
+                     data = sampled_data,  # Sampled dataset
+                     method = "lasso",  # Lasso regression
+                     trControl = ctrl)  # Cross-validation control parameters
+
+# Evaluate Lasso Regression model
+lasso_performance <- resamples(list(Lasso_Regression = lasso_model))
+
+# Train Elastic Net model
+enet_model <- train(Fare ~ .,  # Regression formula
+                    data = sampled_data,  # Sampled dataset
+                    method = "enet",  # Elastic Net
+                    trControl = ctrl)  # Cross-validation control parameters
+
+# Evaluate Elastic Net model
+enet_performance <- resamples(list(Elastic_Net = enet_model))
+
+# Train Random Forest model
+rf_model <- train(Fare ~ .,  # Regression formula
+                  data = sampled_data,  # Sampled dataset
+                  method = "rf",  # Random forest
+                  trControl = ctrl)  # Cross-validation control parameters
+
+# Evaluate Random Forest model
+rf_performance <- resamples(list(Random_Forest = rf_model))
+
+# Train Gradient Boosting Machine model
+gbm_model <- train(Fare ~ .,  # Regression formula
+                   data = sampled_data,  # Sampled dataset
+                   method = "gbm",  # Gradient Boosting Machine
+                   trControl = ctrl)  # Cross-validation control parameters
+
+# Evaluate Gradient Boosting Machine model
+gbm_performance <- resamples(list(Gradient_Boosting_Machine = gbm_model))
+
+# Print performance metrics
+summary(lm_performance)
+summary(ridge_performance)
+summary(lasso_performance)
+summary(enet_performance)
+summary(rf_performance)
+summary(gbm_performance)
+
