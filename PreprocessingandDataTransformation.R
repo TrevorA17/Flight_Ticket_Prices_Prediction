@@ -34,3 +34,8 @@ print(names(missing_values[missing_values > 0]))
 # Display total number of missing values
 print("Total Number of Missing Values:")
 print(sum(missing_values))
+
+# Round off Fare column to 2 decimal places
+flight_data$Fare <- round(flight_data$Fare, 2)
+
+View(flight_data)
