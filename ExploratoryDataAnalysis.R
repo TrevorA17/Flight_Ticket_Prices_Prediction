@@ -132,3 +132,19 @@ cat("Variance Fare:", var_fare, "\n\n")
 cat("Standard Deviation Duration (in hours):", sd_duration, "\n")
 cat("Standard Deviation Days Left:", sd_days_left, "\n")
 cat("Standard Deviation Fare:", sd_fare, "\n")
+
+# Measures of Relationship
+
+# Correlation between numerical variables
+correlation_matrix <- cor(flight_data[c("Duration_in_hours", "Days_left", "Fare")])
+
+# Covariance between numerical variables
+covariance_matrix <- cov(flight_data[c("Duration_in_hours", "Days_left", "Fare")])
+
+# Display Measures of Relationship
+cat("Correlation Matrix:\n")
+print(correlation_matrix)
+cat("\n")
+
+cat("Covariance Matrix:\n")
+print(covariance_matrix)
