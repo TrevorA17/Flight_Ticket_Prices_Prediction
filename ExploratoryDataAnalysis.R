@@ -148,3 +148,20 @@ cat("\n")
 
 cat("Covariance Matrix:\n")
 print(covariance_matrix)
+
+# Load required libraries
+library(dplyr)
+
+# Perform ANOVA tests
+
+# ANOVA by Airline
+anova_airline <- aov(Fare ~ Airline, data = flight_data)
+summary(anova_airline)
+
+# ANOVA by Class
+anova_class <- aov(Fare ~ Class, data = flight_data)
+summary(anova_class)
+
+# ANOVA by Total Stops
+anova_stops <- aov(Fare ~ Total_stops, data = flight_data)
+summary(anova_stops)
