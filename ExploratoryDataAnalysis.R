@@ -58,3 +58,38 @@ departure_frequency
 total_stops_frequency
 arrival_frequency
 destination_frequency
+
+# Measures of Central Tendency
+
+# Mean
+mean_duration <- mean(flight_data$Duration_in_hours)
+mean_days_left <- mean(flight_data$Days_left)
+mean_fare <- mean(flight_data$Fare)
+
+# Median
+median_duration <- median(flight_data$Duration_in_hours)
+median_days_left <- median(flight_data$Days_left)
+median_fare <- median(flight_data$Fare)
+
+# Mode (as there is no built-in function for mode in R, you can create a custom function)
+get_mode <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+
+mode_duration <- get_mode(flight_data$Duration_in_hours)
+mode_days_left <- get_mode(flight_data$Days_left)
+mode_fare <- get_mode(flight_data$Fare)
+
+# Display Measures of Central Tendency
+cat("Mean Duration (in hours):", mean_duration, "\n")
+cat("Median Duration (in hours):", median_duration, "\n")
+cat("Mode Duration (in hours):", mode_duration, "\n\n")
+
+cat("Mean Days Left:", mean_days_left, "\n")
+cat("Median Days Left:", median_days_left, "\n")
+cat("Mode Days Left:", mode_days_left, "\n\n")
+
+cat("Mean Fare:", mean_fare, "\n")
+cat("Median Fare:", median_fare, "\n")
+cat("Mode Fare:", mode_fare, "\n")
