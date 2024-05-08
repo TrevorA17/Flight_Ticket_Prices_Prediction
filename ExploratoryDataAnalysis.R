@@ -93,3 +93,42 @@ cat("Mode Days Left:", mode_days_left, "\n\n")
 cat("Mean Fare:", mean_fare, "\n")
 cat("Median Fare:", median_fare, "\n")
 cat("Mode Fare:", mode_fare, "\n")
+
+# Measures of Distribution
+
+# Range
+range_duration <- range(flight_data$Duration_in_hours)
+range_days_left <- range(flight_data$Days_left)
+range_fare <- range(flight_data$Fare)
+
+# Interquartile Range (IQR)
+IQR_duration <- IQR(flight_data$Duration_in_hours)
+IQR_days_left <- IQR(flight_data$Days_left)
+IQR_fare <- IQR(flight_data$Fare)
+
+# Variance
+var_duration <- var(flight_data$Duration_in_hours)
+var_days_left <- var(flight_data$Days_left)
+var_fare <- var(flight_data$Fare)
+
+# Standard Deviation
+sd_duration <- sd(flight_data$Duration_in_hours)
+sd_days_left <- sd(flight_data$Days_left)
+sd_fare <- sd(flight_data$Fare)
+
+# Display Measures of Distribution
+cat("Range Duration (in hours):", range_duration, "\n")
+cat("Range Days Left:", range_days_left, "\n")
+cat("Range Fare:", range_fare, "\n\n")
+
+cat("Interquartile Range (IQR) Duration (in hours):", IQR_duration, "\n")
+cat("Interquartile Range (IQR) Days Left:", IQR_days_left, "\n")
+cat("Interquartile Range (IQR) Fare:", IQR_fare, "\n\n")
+
+cat("Variance Duration (in hours):", var_duration, "\n")
+cat("Variance Days Left:", var_days_left, "\n")
+cat("Variance Fare:", var_fare, "\n\n")
+
+cat("Standard Deviation Duration (in hours):", sd_duration, "\n")
+cat("Standard Deviation Days Left:", sd_days_left, "\n")
+cat("Standard Deviation Fare:", sd_fare, "\n")
