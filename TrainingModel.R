@@ -162,3 +162,13 @@ summary(enet_performance)
 summary(rf_performance)
 summary(gbm_performance)
 
+# Compare model performances using resamples
+model_comparisons <- resamples(list(Linear_Regression = lm_model,
+                                    Ridge_Regression = ridge_model,
+                                    Lasso_Regression = lasso_model,
+                                    Elastic_Net = enet_model,
+                                    Random_Forest = rf_model,
+                                    Gradient_Boosting_Machine = gbm_model))
+
+# Summarize model comparisons
+summary(model_comparisons)
