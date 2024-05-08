@@ -191,3 +191,29 @@ ggplot(flight_data, aes(x = Fare)) +
   labs(title = "Histogram of Fare",
        x = "Fare", y = "Frequency") +
   theme_minimal()
+
+# Load required libraries
+library(ggplot2)
+
+# Multivariate Plots
+
+# Scatter plot between Duration_in_hours and Fare colored by Airline
+ggplot(flight_data, aes(x = Duration_in_hours, y = Fare, color = Airline)) +
+  geom_point() +
+  labs(title = "Duration vs Fare by Airline",
+       x = "Duration (hours)", y = "Fare") +
+  theme_minimal()
+
+# Box plot of Fare by Class
+ggplot(flight_data, aes(x = Class, y = Fare, fill = Class)) +
+  geom_boxplot() +
+  labs(title = "Boxplot of Fare by Class",
+       x = "Class", y = "Fare") +
+  theme_minimal()
+
+# Bar plot of Total stops
+ggplot(flight_data, aes(x = Total_stops, fill = Total_stops)) +
+  geom_bar() +
+  labs(title = "Bar plot of Total stops",
+       x = "Total Stops", y = "Count") +
+  theme_minimal()
