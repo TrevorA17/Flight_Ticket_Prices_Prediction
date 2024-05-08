@@ -165,3 +165,29 @@ summary(anova_class)
 # ANOVA by Total Stops
 anova_stops <- aov(Fare ~ Total_stops, data = flight_data)
 summary(anova_stops)
+
+# Load required libraries
+library(ggplot2)
+
+# Univariate Plots
+
+# Histogram for Duration_in_hours
+ggplot(flight_data, aes(x = Duration_in_hours)) +
+  geom_histogram(binwidth = 1, fill = "skyblue", color = "black") +
+  labs(title = "Histogram of Duration (in hours)",
+       x = "Duration (hours)", y = "Frequency") +
+  theme_minimal()
+
+# Histogram for Days_left
+ggplot(flight_data, aes(x = Days_left)) +
+  geom_histogram(binwidth = 1, fill = "lightgreen", color = "black") +
+  labs(title = "Histogram of Days Left",
+       x = "Days Left", y = "Frequency") +
+  theme_minimal()
+
+# Histogram for Fare
+ggplot(flight_data, aes(x = Fare)) +
+  geom_histogram(binwidth = 500, fill = "lightcoral", color = "black") +
+  labs(title = "Histogram of Fare",
+       x = "Fare", y = "Frequency") +
+  theme_minimal()
