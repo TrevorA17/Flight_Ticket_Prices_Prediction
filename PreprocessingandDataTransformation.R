@@ -39,3 +39,11 @@ print(sum(missing_values))
 flight_data$Fare <- round(flight_data$Fare, 2)
 
 View(flight_data)
+
+# Scaling numerical variables (e.g., Duration_in_hours and Days_left)
+flight_data$Duration_scaled <- scale(flight_data$Duration_in_hours)
+flight_data$Days_left_scaled <- scale(flight_data$Days_left)
+
+# Log transformation of Fare
+flight_data$Fare_log <- log(flight_data$Fare + 1)  # Adding 1 to handle zero fares
+
